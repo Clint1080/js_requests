@@ -209,4 +209,10 @@ const queryBtn = document.querySelector('#query-button').addEventListener(`click
     Based on what we did earlier to display this type of data, write code that will display the response in your HTML document. 
 */
 
-// CODE HERE 
+// const createFood = () => {
+//     let foodInput = document.querySelector(`input`)
+
+//     let body = {
+//         newFood = foodInput
+//     }
+// }
