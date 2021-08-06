@@ -180,7 +180,9 @@ const queryBtn = document.querySelector('#query-button').addEventListener(`click
     2: Send more than 1 query on the URL -- what happened? 
 */
 
-// Edit code in Problem 8
+//  1. You sent an empty query!
+//  2. you sent query: 20?name,lastname, with value    !
+// I dont know if that was expected but that's what I got
 
 
 
