@@ -76,19 +76,16 @@ sayHelloButton.addEventListener("click", sayHello);
     Handle the promise that's returned with a .then, which you should pass a callback function to. Inside the callback function, console.log the response's data (in the intermediate instructions we'll come back to this function and add HTML).
 */ 
 baseURL = `http://localhost:3000`
-const newP = document.createElement('p');
-const newS = document.createElement('span')
-const addB = document.querySelector('body')
 
 const ohMy = () => {
     axios.get(`${baseURL}/animals`)
     .then(res => {
         console.log(res.data)
-        // for(let i = 0; i < res.data.length; i++){
-        //     newP.appendChild(res.data[i])
-        //     newS.appendChild(newP)
-        //     addB.appendChild(newS)
-        // }
+        for(let i = 0; i < res.data.length; i++){
+            newP = document.createElement(`p`)
+            newP.textContent = (res.data[i])
+            document.querySelector(`body`).appendChild(newP)
+        }
     })
 }
 
@@ -165,11 +162,14 @@ const queryBtn = document.querySelector('#query-button').addEventListener(`click
     On each iteration of the loop, create a new p element. Set its textContent equal the string at the current index (i) and then append the new p element onto the document's body. 
 */
 
- // for(let i = 0; i < res.data.length; i++){
-        //     newP.appendChild(res.data[i])
-        //     newS.appendChild(newP)
-        //     addB.appendChild(newS)
-        // }
+
+//  for (let i = 0; i < res.data.length; i++) {
+//    newP = document.createElement(`p`);
+//    newP.textContent = res.data[i];
+//    document.querySelector(`body`).appendChild(newP);
+//  }
+
+
 
 // PROBLEM 10 
 /*
