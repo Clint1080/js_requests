@@ -143,7 +143,8 @@ Now that we have the response data, let's add it to our web page!
 const testAge = 20;
 
 const checkData = () => {
-    axios.get(`${baseURL}/query-test?${testAge}`)
+    axios.get(`${baseURL}/query-test/?age=${testAge}&name=clint
+    `)
     .then(res => {
         console.log(res.data)
     })
@@ -181,8 +182,7 @@ const queryBtn = document.querySelector('#query-button').addEventListener(`click
 */
 
 //  1. You sent an empty query!
-//  2. you sent query: 20?name,lastname, with value    !
-// I dont know if that was expected but that's what I got
+//  2. We got a JSON obect back with a message that says you have more than one query
 
 
 
@@ -209,10 +209,32 @@ const queryBtn = document.querySelector('#query-button').addEventListener(`click
     Based on what we did earlier to display this type of data, write code that will display the response in your HTML document. 
 */
 
-// const createFood = () => {
-//     let foodInput = document.querySelector(`input`)
 
-//     let body = {
-//         newFood = foodInput
-//     }
-// }
+
+const createFood = (event) => {
+    event.preventDefault()
+    let foodInput = document.querySelector(`input`)
+
+    let body = {
+        newFood: foodInput.value
+    }
+    
+    axios.post(`${baseURL}/food`, body)
+    .then(res => {
+        // let food = document.createElement('ul')
+            // for (let i = 0; i < res.data.length ; i++) {
+            newUL = document.createElement('ul')
+            newP = document.createElement(`p`);
+            newP.textContent = res.data.at(-1);
+            document.querySelector(`body`).appendChild(newP)
+            //newUL.appendChild(newP)
+        // }
+    })
+    //console.log(foodInput.innerHTML)
+    foodInput.value = ``
+}
+
+
+document.querySelector(`#addFood`).addEventListener(`click`, createFood)
+
+
